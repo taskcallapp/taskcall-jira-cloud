@@ -1,0 +1,11 @@
+modules:
+  jira:issuePanel:
+    - key: taskcall-jira-cloud-hello-world-panel
+      function: main
+      title: taskcall-jira-cloud
+      icon: https://developer.atlassian.com/platform/forge/images/icons/issue-panel-icon.svg
+  function:
+    - key: main
+      handler: index.run
+app:
+  id: ari:cloud:ecosystem::app/e0548660-4e31-41bf-876c-1c3e3dc90a3b
