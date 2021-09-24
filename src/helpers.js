@@ -3,7 +3,7 @@
 
 import * as _en_lu from '../assets/files/label_universe_en.json';
 import * as _es_lu from '../assets/files/label_universe_es.json';
-import lnm from '../label_names';
+import lnm from '../src/label_names';
 import * as _lu from '../assets/files/label_universe.json';
 
 
