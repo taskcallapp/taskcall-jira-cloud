@@ -1,6 +1,6 @@
 import React from 'react';
 // import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
-import ForgeUI, { Button, Fragment, IssueGlance, render, Text } from '@forge/ui';
+import ForgeUI, { Button, Cell, Fragment, Heading, IssueGlance, render, Row, Table, Text } from '@forge/ui';
 import MoreIcon from '@atlaskit/icon/glyph/more';
 import * as helpers from '../src/helpers';
 import * as _lu from '../assets/files/label_universe.json';
@@ -20,10 +20,44 @@ const App = () => {
 
       <Fragment>
         <Fragment>
-          <Fragment> Title of the incident </Fragment>
+          <Fragment>
+            <Text> Title of the incident </Text>
+          </Fragment>
 
           <Fragment>
           </Fragment>
+        </Fragment>
+
+        <Fragment>
+          <Heading> { _lu.ttl_details } </Heading>
+
+          <Table>
+            <Row>
+              <Cell> <Text> { _lu.det_service }: </Text> </Cell>
+              <Cell> <Text></Text> </Cell>
+            </Row>
+
+            <Row>
+              <Cell> <Text> { _lu.det_urgency }: </Text> </Cell>
+              <Cell> <Text></Text> </Cell>
+            </Row>
+
+            <Row>
+              <Cell> <Text> { _lu.det_assigned_to }: </Text> </Cell>
+              <Cell> <Text></Text> </Cell>
+            </Row>
+
+            <Row>
+              <Cell> <Text> { _lu.det_next_alert_in }: </Text> </Cell>
+              <Cell> <Text></Text> </Cell>
+            </Row>
+          </Table>
+        </Fragment>
+
+        <Fragment>
+          <Heading> { _lu.ttl_details } </Heading>
+
+
         </Fragment>
 
       </Fragment>
