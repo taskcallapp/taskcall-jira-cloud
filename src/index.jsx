@@ -1,5 +1,5 @@
 import React from 'react';
-import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
+// import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
 import ForgeUI, { Button, Fragment, IssueGlance, render, Text } from '@forge/ui';
 import MoreIcon from '@atlaskit/icon/glyph/more';
 import * as helpers from '../src/helpers';
@@ -23,13 +23,6 @@ const App = () => {
           <Fragment> Title of the incident </Fragment>
 
           <Fragment>
-            <DropdownMenu triggerButtonProps={{ iconBefore: <MoreIcon label="more" /> }} triggerType="button">
-              <DropdownItemGroup>
-                <DropdownItem>Edit</DropdownItem>
-                <DropdownItem>Share</DropdownItem>
-                <DropdownItem>Move</DropdownItem>
-              </DropdownItemGroup>
-            </DropdownMenu>
           </Fragment>
         </Fragment>
 
