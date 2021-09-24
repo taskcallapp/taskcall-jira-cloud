@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { invoke } from '@forge/bridge';
+import * as _lu from '../assets/files/label_universe.json';
+
 
 function App() {
   const [data, setData] = useState(null);
@@ -10,12 +12,14 @@ function App() {
 
   return (
     <div>
-	  {
-	      data ?
-		  data
+    {
+      data ?
+		  <div>
+        <button> { _lu.ttl_create_incident } </button>
+      </div>
 		  :
 		  <div>
-		      <button> Create Incident </button>
+        <button> { _lu.det_service } </button>
 		  </div>
 	  }
     </div>
