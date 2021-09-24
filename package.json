@@ -13,8 +13,8 @@
     "eslint-plugin-react-hooks": "^2.1.2"
   },
   "dependencies": {
-    "@atlaskit/dropdown-menu": "^10.1.9",
+    "@forge/ui": "^0.13.1",
     "@forge/api": "^2.3.0",
-    "@forge/ui": "^0.13.1"
+    "@atlaskit/dropdown-menu": "^10.1.9"
   }
 }
