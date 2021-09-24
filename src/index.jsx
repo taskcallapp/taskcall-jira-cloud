@@ -1,6 +1,6 @@
 import React from 'react';
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
-import ForgeUI, { Button, Fragment, IssueGlance, Text } from '@forge/ui';
+import ForgeUI, { Button, Fragment, IssueGlance, render, Text } from '@forge/ui';
 import MoreIcon from '@atlaskit/icon/glyph/more';
 import * as helpers from '../src/helpers';
 import * as _lu from '../assets/files/label_universe.json';
