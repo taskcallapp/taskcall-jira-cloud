@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { invoke } from '@forge/bridge';
-import * as _lu from '..src/assets/files/label_universe.json';
+import * as _lu from '../src/assets/files/label_universe.json';
 
 
 function App() {
