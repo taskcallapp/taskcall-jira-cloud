@@ -15,7 +15,7 @@ function App() {
     {
       data ?
 		  <div>
-        <button> { _lu.ttl_create_incident } </button>
+        <button style="background-color: #4CBB17; color: white; border-radius: 3px;"> { _lu.ttl_create_incident } </button>
       </div>
 		  :
 		  <div>
