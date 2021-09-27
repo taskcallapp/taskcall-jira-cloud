@@ -44,7 +44,7 @@ function App() {
 
         <div style={{ clear: "both", marginBottom: "8px" }}>
           <a class="btn btn-link header-text px-0">
-            { _lu.ttl_details } <span>&#9660;</span>
+            { _lu.ttl_details }
           </a>
 
           <div class="collapse show" id="collapseDetails">
@@ -72,7 +72,7 @@ function App() {
 
           <div style={{ clear: "both", marginBottom: "8px", paddingBottom: "20px" }}>
               <a class="btn btn-link header-text px-0">
-                  { _lu.ttl_timeline } <span>&#9660;</span>
+                  { _lu.ttl_timeline }
               </a>
               <div class="collapse show" id="collapseTimeline">
                   <div id="timelineBody" class="app-text">
@@ -83,7 +83,7 @@ function App() {
       </div>
 		  :
       <div>
-        <Button appearance="primary" autoFocus>
+        <Button appearance="primary">
           { _lu.ttl_create_incident }
         </Button>
       </div>
