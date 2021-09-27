@@ -15,9 +15,7 @@ function App() {
 
   return (
     <div>
-      <Button appearance="subtle">
-        { _lu.ttl_create_incident }
-      </Button>
+      <Button> { _lu.ttl_create_incident } </Button>
     </div>
   );
 }

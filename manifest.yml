@@ -15,3 +15,13 @@ resources:
     path: static/taskcall/build
 app:
   id: ari:cloud:ecosystem::app/270c9862-ee04-4a43-b28e-bb34a083c9b2
+permissions:
+  scopes:
+    - read:jira-work
+    - write:jira-work
+  content:
+    styles:
+      - 'unsafe-inline'
+    scripts:
+      - 'unsafe-inline'
+      - 'unsafe-hashes'
