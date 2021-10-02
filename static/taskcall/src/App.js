@@ -87,16 +87,17 @@ function App() {
             </div>
           </div>
 
-
-          <ModalDialog header={ _lu.ttl_add_note } onClose={() => setAddNoteModalOpen(false)}>
-            <Form onSubmit={newData => { setOpen(false); }}>
-              <Select label="T-shirt size" name="size">
-                <Option label="Small" value="small" />
-                <Option label="Medium" value="medium" />
-                <Option label="Large" value="large" />
-              </Select>
-            </Form>
-          </ModalDialog>
+          {isAddNoteModalOpen && (
+            <ModalDialog header={ _lu.ttl_add_note } onClose={() => setAddNoteModalOpen(false)}>
+              <Form onSubmit={newData => { setOpen(false); }}>
+                <Select label="T-shirt size" name="size">
+                  <Option label="Small" value="small" />
+                  <Option label="Medium" value="medium" />
+                  <Option label="Large" value="large" />
+                </Select>
+              </Form>
+            </ModalDialog>
+          )}
         </div>
         :
         <div>
