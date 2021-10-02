@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './css/AppStyles.css';
 import Button from '@atlaskit/button';
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
-import ForgeUI, { Form, ModalDialog, Option, Select } from '@forge/ui';
+import Modal, { ModalBody, ModalFooter, ModalHeader, ModalTitle, ModalTransition } from '@atlaskit/modal-dialog';
 import { invoke } from '@forge/bridge';
 import * as _lu from '../src/assets/files/label_universe.json';
 import MenuIcon from '@atlaskit/icon/glyph/menu';
@@ -12,7 +12,13 @@ import * as VarNames from '../src/VarNames';
 
 function App() {
   const [data, setData] = useState(null);
-  const [isAddNoteModalOpen, setAddNoteModalOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const openModal = useCallback(() => setIsOpen(true), []);
+  const closeModal = useCallback(() => setIsOpen(false), []);
+
+  const boldStyles = css({
+    fontWeight: 'bold',
+  });
 
   useEffect(() => {
     invoke('getText', { example: 'my-invoke-variable' }).then(setData);
@@ -38,7 +44,7 @@ function App() {
                 <DropdownItemGroup>
                   <DropdownItem> { _lu.ttl_acknowledge } </DropdownItem>
                   <DropdownItem> { _lu.ttl_resolve } </DropdownItem>
-                  <DropdownItem onClick={() => setAddNoteModalOpen(true)}> { _lu.ttl_add_note } </DropdownItem>
+                  <DropdownItem onClick={openModal}> { _lu.ttl_add_note } </DropdownItem>
                   <DropdownItem> { _lu.ttl_reassign } </DropdownItem>
                   <DropdownItem> { _lu.ttl_add_responders } </DropdownItem>
                   <DropdownItem> { _lu.ttl_run_response_set } </DropdownItem>
@@ -87,17 +93,26 @@ function App() {
             </div>
           </div>
 
-          {isAddNoteModalOpen && (
-            <ModalDialog header={ _lu.ttl_add_note } onClose={() => setAddNoteModalOpen(false)}>
-              <Form onSubmit={newData => { setOpen(false); }}>
-                <Select label="T-shirt size" name="size">
-                  <Option label="Small" value="small" />
-                  <Option label="Medium" value="medium" />
-                  <Option label="Large" value="large" />
-                </Select>
-              </Form>
-            </ModalDialog>
-          )}
+          <ModalTransition>
+            {isOpen && (
+              <Modal onClose={closeModal}>
+                <ModalHeader>
+                  <ModalTitle>Duplicate this page</ModalTitle>
+                </ModalHeader>
+                <ModalBody>
+                  Duplicating this page will make it a child page of{' '}
+                  <span css={boldStyles}>Search - user exploration</span>, in the{' '}
+                  <span css={boldStyles}>Search & Smarts</span> space.
+                </ModalBody>
+                <ModalFooter>
+                  <Button appearance="subtle">Cancel</Button>
+                  <Button appearance="primary" onClick={closeModal} autoFocus>
+                    Duplicate
+                  </Button>
+                </ModalFooter>
+              </Modal>
+            )}
+          </ModalTransition>
         </div>
         :
         <div>
