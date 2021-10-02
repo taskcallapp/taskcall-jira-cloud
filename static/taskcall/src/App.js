@@ -50,7 +50,11 @@ function App() {
             </div>
           </div>
 
-          <div style={{ clear: "both", height: "8px" }}></div>
+          <div style={{ clear: "both", height: "8px" }}>
+            <Button appearance="primary" onClick={openModal}>
+              Open modal
+            </Button>
+          </div>
 
           <div style={{ clear: "both", marginBottom: "8px" }}>
             <a data-toggle="collapse" href="#collapseDetails" role="button" aria-expanded="true" aria-controls="collapseDetails">
