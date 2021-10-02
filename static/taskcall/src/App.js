@@ -24,15 +24,14 @@ function App() {
           <p id="pError" style={{ padding: "10px", color: "red", fontSize: "12px", textAlign: "center" }} hidden></p>
 
           <div>
-            <div style={{ width: "75%", float: "left", height: "100px" }}>
+            <div style={{ width: "75%", float: "left" }}>
               <div id="divStatus" style={{ textTransform: "uppercase" }}> Acknowledged </div>
               <div style={{ marginTop: "2px" }}>
                   <a href="https://app.taskcallapp.com/incidents/{{ incident_id }}" target="_blank"> New issue has been found. Please check. </a>
               </div>
             </div>
-
-            <div style={{ width: "20%", float: "left", paddingLeft: "3%", height: "100px" }}>
-              <DropdownMenu triggerButtonProps={{ iconBefore: <MenuIcon label="menu" size="medium" /> }} triggerType="button">
+	    <div style={{ width: "20%", float: "left", paddingLeft: "3%" }}>
+              <DropdownMenu triggerButtonProps={{ iconBefore: <MenuIcon label="menu" size="medium" /> }} triggerType="button" position="bottom right" boundariesElement="viewport">
                 <DropdownItemGroup>
                   <DropdownItem> { _lu.ttl_acknowledge } </DropdownItem>
                   <DropdownItem> { _lu.ttl_resolve } </DropdownItem>
@@ -43,7 +42,7 @@ function App() {
                   <DropdownItem> { _lu.ttl_status_update } </DropdownItem>
                 </DropdownItemGroup>
               </DropdownMenu>
-            </div>
+            </div>  
           </div>
 
           <div style={{ height: "200px" }}>
