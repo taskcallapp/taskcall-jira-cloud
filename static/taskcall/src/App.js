@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import './css/AppStyles.css';
 import Button from '@atlaskit/button';
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
-import Modal, { ModalBody, ModalFooter, ModalHeader, ModalTitle, ModalTransition } from '@atlaskit/modal-dialog';
+import ForgeUI, { Form, IssueGlance, ModalDialog, Button, useProductContext, Fragment, useState, render, Text, useAction, Checkbox, CheckboxGroup, Table, Head, Row, Cell } from "@forge/ui";
 import { invoke } from '@forge/bridge';
 import * as _lu from '../src/assets/files/label_universe.json';
 import MenuIcon from '@atlaskit/icon/glyph/menu';
@@ -12,9 +12,22 @@ import * as VarNames from '../src/VarNames';
 
 function App() {
   const [data, setData] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false);
   const openModal = useCallback(() => setIsOpen(true), []);
   const closeModal = useCallback(() => setIsOpen(false), []);
+
+  const [submitted, setSubmitted] = useAction(
+      (_, formData) => saveValues(formData, issueKey),
+      values
+  );
+
+  const openModal = async () => {
+      setOpen(true);
+  };
+
+  const saveValues = async (formData, issueKey) => {
+      return formData;
+  };
 
   useEffect(() => {
     invoke('getText', { example: 'my-invoke-variable' }).then(setData);
@@ -93,30 +106,23 @@ function App() {
             </div>
           </div>
 
-          <ModalTransition>
-            {isOpen && (
-              <Modal onClose={closeModal}>
-                <ModalHeader>
-                  <ModalTitle>Duplicate this page</ModalTitle>
-                </ModalHeader>
-                <ModalBody>
-                  Duplicating this page will make it a child page of{' '}
-                  <span>Search - user exploration</span>, in the{' '}
-                  <span>Search & Smarts</span> space.
-                </ModalBody>
-                <ModalFooter>
-                  <Button appearance="subtle">Cancel</Button>
-                  <Button appearance="primary" onClick={closeModal} autoFocus>
-                    Duplicate
-                  </Button>
-                </ModalFooter>
-              </Modal>
-            )}
-          </ModalTransition>
+          {isOpen && (
+              <ModalDialog header="QA Demo Validator" onClose={() => setOpen(false)}>
+                  <Form
+                      onSubmit={async (data) => {
+                          await setSubmitted(data);
+                          setOpen(false);
+                      }}
+                  >
+                      <CheckboxGroup label="Areas covered" name="parts">
+                      </CheckboxGroup>
+                  </Form>
+              </ModalDialog>
+          )}
         </div>
         :
         <div>
-          <Button> { _lu.ttl_create_incident } </Button>
+          <Button appearance="primary"> { _lu.ttl_create_incident } </Button>
         </div>
       }
     </div>
