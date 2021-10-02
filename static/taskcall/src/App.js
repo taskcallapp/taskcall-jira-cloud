@@ -15,7 +15,28 @@ function App() {
 
   return (
     <div>
-      <Button> { _lu.ttl_create_incident } </Button>
+      {
+        data ?
+        <div>
+          <label id="lblTcInc" hidden></label>
+          <p id="pError" style={{ padding: "10px", color: "red", fontSize: "12px", textAlign: "center" }} hidden></p>
+
+          <div style={{ height: "100px" }}>
+            <div style={{ flex: 4, backgroundColor: "yellow" }}></div>
+            <div style={{ flex: 1, backgroundColor: "green" }}></div>
+          </div>
+
+          <div style={{ height: "200px", backgroundColor: "blue" }}>
+          </div>
+
+          <div style={{ height: "300px", backgroundColor: "black" }}>
+          </div>
+        </div>
+        :
+        <div>
+          <Button> { _lu.ttl_create_incident } </Button>
+        </div>
+      }
     </div>
   );
 }
