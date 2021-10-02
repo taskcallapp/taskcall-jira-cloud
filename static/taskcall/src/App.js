@@ -16,10 +16,6 @@ function App() {
   const openModal = useCallback(() => setIsOpen(true), []);
   const closeModal = useCallback(() => setIsOpen(false), []);
 
-  const boldStyles = css({
-    fontWeight: 'bold',
-  });
-
   useEffect(() => {
     invoke('getText', { example: 'my-invoke-variable' }).then(setData);
   }, []);
@@ -101,8 +97,8 @@ function App() {
                 </ModalHeader>
                 <ModalBody>
                   Duplicating this page will make it a child page of{' '}
-                  <span css={boldStyles}>Search - user exploration</span>, in the{' '}
-                  <span css={boldStyles}>Search & Smarts</span> space.
+                  <span>Search - user exploration</span>, in the{' '}
+                  <span>Search & Smarts</span> space.
                 </ModalBody>
                 <ModalFooter>
                   <Button appearance="subtle">Cancel</Button>
