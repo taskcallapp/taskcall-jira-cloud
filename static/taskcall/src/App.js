@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './css/AppStyles.css';
 import Button from '@atlaskit/button';
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
-import ForgeUI, { Form, ModalDialog, Option } from '@forge/ui';
+import ForgeUI, { Form, ModalDialog, Option, Select } from '@forge/ui';
 import { invoke } from '@forge/bridge';
 import * as _lu from '../src/assets/files/label_universe.json';
 import MenuIcon from '@atlaskit/icon/glyph/menu';
