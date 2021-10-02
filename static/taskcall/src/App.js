@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import './css/AppStyles.css';
 import Button from '@atlaskit/button';
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
-import ForgeUI, { Form, IssueGlance, ModalDialog, Button, useProductContext, Fragment, useState, render, Text, useAction, Checkbox, CheckboxGroup, Table, Head, Row, Cell } from "@forge/ui";
+import ForgeUI, { Form, IssueGlance, ModalDialog, useProductContext, Fragment, useState, render, Text, useAction, Checkbox, CheckboxGroup, Table, Head, Row, Cell } from "@forge/ui";
 import { invoke } from '@forge/bridge';
 import * as _lu from '../src/assets/files/label_universe.json';
 import MenuIcon from '@atlaskit/icon/glyph/menu';
