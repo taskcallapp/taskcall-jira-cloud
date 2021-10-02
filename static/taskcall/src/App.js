@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './css/AppStyles.css';
 import Button from '@atlaskit/button';
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
 import { invoke } from '@forge/bridge';
@@ -25,7 +26,7 @@ function App() {
 
           <div>
             <div style={{ width: "75%", float: "left" }}>
-              <div id="divStatus" style={{ textTransform: "uppercase", backgroundColor: "yellow", borderRadius: "5px", padding: "5px" }}> Acknowledged </div>
+              <div id="divStatus" className="status-tag" style={{ backgroundColor: "yellow" }}> Acknowledged </div>
               <div style={{ marginTop: "2px" }}>
                   <a href="https://app.taskcallapp.com/incidents/{{ incident_id }}" target="_blank"> New issue has been found. Please check. </a>
               </div>
@@ -52,29 +53,36 @@ function App() {
               { _lu.ttl_details }
             </a>
           </div>
-          <div class="collapse show" id="collapseDetails">
-              <div class="app-text">
+          <div className="collapse show" id="collapseDetails">
+              <div className="app-text">
                   <table>
-                      <tr class="table-row">
-                          <td class="table-attribute-col"> { _lu.det_service }: </td>
+                      <tr className="table-row">
+                          <td className="table-attribute-col"> { _lu.det_service }: </td>
                           <td id="tdService"></td>
                       </tr>
-                      <tr class="table-row">
-                          <td class="table-attribute-col"> { _lu.det_urgency }: </td>
+                      <tr className="table-row">
+                          <td className="table-attribute-col"> { _lu.det_urgency }: </td>
                           <td id="tdUrgency"></td>
                       </tr>
-                      <tr class="table-row">
-                          <td class="table-attribute-col"> { _lu.det_assigned_to }: </td>
+                      <tr className="table-row">
+                          <td className="table-attribute-col"> { _lu.det_assigned_to }: </td>
                           <td id="tdAssignedTo"></td>
                       </tr>
-                      <tr class="table-row">
-                          <td class="table-attribute-col"> { _lu.det_next_alert_in }: </td>
+                      <tr className="table-row">
+                          <td className="table-attribute-col"> { _lu.det_next_alert_in }: </td>
                           <td id="tdNextAlertIn"></td>
                       </tr>
                   </table>
               </div>
           </div>
-          <div style={{ height: "300px" }}>
+          <div style={{ clear: "both", marginBottom: "8px", paddingBottom: "20px" }}>
+            <a className="btn btn-link header-text px-0" data-toggle="collapse" href="#collapseTimeline" role="button" aria-expanded="true" aria-controls="collapseTimeline">
+                { _lu.ttl_timeline }
+            </a>
+            <div className="collapse show" id="collapseTimeline">
+                <div id="timelineBody" className="app-text">
+                </div>
+            </div>
           </div>
         </div>
         :
