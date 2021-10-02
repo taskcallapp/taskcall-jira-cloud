@@ -25,12 +25,12 @@ function App() {
 
           <div>
             <div style={{ width: "75%", float: "left" }}>
-              <div id="divStatus" style={{ textTransform: "uppercase" }}> Acknowledged </div>
+              <div id="divStatus" style={{ textTransform: "uppercase", backgroundColor: "yellow", borderRadius: "5px", padding: "5px" }}> Acknowledged </div>
               <div style={{ marginTop: "2px" }}>
                   <a href="https://app.taskcallapp.com/incidents/{{ incident_id }}" target="_blank"> New issue has been found. Please check. </a>
               </div>
             </div>
-	    <div style={{ width: "20%", float: "left", paddingLeft: "3%" }}>
+	          <div style={{ width: "20%", float: "left", paddingLeft: "3%" }}>
               <DropdownMenu triggerButtonProps={{ iconBefore: <MenuIcon label="menu" size="medium" /> }} triggerType="button" position="bottom right" boundariesElement="viewport">
                 <DropdownItemGroup>
                   <DropdownItem> { _lu.ttl_acknowledge } </DropdownItem>
@@ -42,12 +42,38 @@ function App() {
                   <DropdownItem> { _lu.ttl_status_update } </DropdownItem>
                 </DropdownItemGroup>
               </DropdownMenu>
-            </div>  
+            </div>
           </div>
 
-          <div style={{ height: "200px" }}>
-          </div>
+          <div style={{ clear: "both", height: "8px" }}></div>
 
+          <div style={{ clear: "both", marginBottom: "8px" }}>
+            <a data-toggle="collapse" href="#collapseDetails" role="button" aria-expanded="true" aria-controls="collapseDetails">
+              { _lu.ttl_details }
+            </a>
+          </div>
+          <div class="collapse show" id="collapseDetails">
+              <div class="app-text">
+                  <table>
+                      <tr class="table-row">
+                          <td class="table-attribute-col"> { _lu.det_service }: </td>
+                          <td id="tdService"></td>
+                      </tr>
+                      <tr class="table-row">
+                          <td class="table-attribute-col"> { _lu.det_urgency }: </td>
+                          <td id="tdUrgency"></td>
+                      </tr>
+                      <tr class="table-row">
+                          <td class="table-attribute-col"> { _lu.det_assigned_to }: </td>
+                          <td id="tdAssignedTo"></td>
+                      </tr>
+                      <tr class="table-row">
+                          <td class="table-attribute-col"> { _lu.det_next_alert_in }: </td>
+                          <td id="tdNextAlertIn"></td>
+                      </tr>
+                  </table>
+              </div>
+          </div>
           <div style={{ height: "300px" }}>
           </div>
         </div>
