@@ -25,7 +25,7 @@ function App() {
           <p id="pError" style={{ padding: "10px", color: "red", fontSize: "12px", textAlign: "center" }} hidden></p>
 
           <div>
-            <div style={{ width: "75%", float: "left" }}>
+            <div className="header-text" style={{ width: "75%", float: "left" }}>
               <div id="divStatus" className="status-tag" style={{ backgroundColor: "yellow" }}> Acknowledged </div>
               <div style={{ marginTop: "2px" }}>
                   <a href="https://app.taskcallapp.com/incidents/{{ incident_id }}" target="_blank"> New issue has been found. Please check. </a>
