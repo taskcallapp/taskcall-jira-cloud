@@ -4,6 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "install-taskcall": "cd static/taskcall && npm install && npm run build",
+    "install-add-note-modal": "cd static/add-note-modal && npm install && npm run build",
+    "setup": "npm install && npm run install-taskcall && npm run install-add-note-modal"
+  },
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-plugin-react-hooks": "^2.1.2"
