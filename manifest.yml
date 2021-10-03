@@ -11,8 +11,14 @@ modules:
     - key: resolver
       handler: index.handler
 resources:
-  - key: main
+  - key: taskcall
     path: static/taskcall/build
+    tunnel:
+      port: 3000
+  - key: add-note-modal
+    path: static/add-note-modal/build
+    tunnel:
+      port: 3001
 app:
   id: ari:cloud:ecosystem::app/270c9862-ee04-4a43-b28e-bb34a083c9b2
 permissions:

@@ -2,8 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import './css/AppStyles.css';
 import Button from '@atlaskit/button';
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
-import ForgeUI, { Form, IssueGlance, ModalDialog, useProductContext, Fragment, useState, render, Text, useAction, Checkbox, CheckboxGroup, Table, Head, Row, Cell } from "@forge/ui";
-import { invoke } from '@forge/bridge';
+import { invoke, Modal } from '@forge/bridge';
 import * as _lu from '../src/assets/files/label_universe.json';
 import MenuIcon from '@atlaskit/icon/glyph/menu';
 import TextArea from '@atlaskit/textarea';
@@ -12,26 +11,46 @@ import * as VarNames from '../src/VarNames';
 
 function App() {
   const [data, setData] = useState(null);
-  const [isOpen, setOpen] = useState(false);
-  const openModal = useCallback(() => setIsOpen(true), []);
-  const closeModal = useCallback(() => setIsOpen(false), []);
-
-  const [submitted, setSubmitted] = useAction(
-      (_, formData) => saveValues(formData, issueKey),
-      values
-  );
-
-  const openModal = async () => {
-      setOpen(true);
-  };
-
-  const saveValues = async (formData, issueKey) => {
-      return formData;
-  };
+  const [summary, setSummary] = useState(null);
+  const [description, setDescription] = useState(null);
 
   useEffect(() => {
     invoke('getText', { example: 'my-invoke-variable' }).then(setData);
   }, []);
+
+  useEffect(() => {
+    (async () => {
+      // Can be done using resolvers
+      // TO get the issue details, i.e. summary and description
+      const data = await invoke('getIssue');
+
+      const { summary: issueSummary, description: issueDescription } =
+        data.fields;
+
+      // checking if summary exists and setting it
+      setSummary(issueSummary ? issueSummary : null);
+      // checking if description exists and setting it
+      setDescription(
+        issueDescription && issueDescription.content[0].content[0].text
+          ? issueDescription.content[0].content[0].text
+          : null
+      );
+    })();
+    return () => {};
+  }, []);
+
+  const openModal = () => {
+    const modal = new Modal({
+      resource: 'add-note-modal',
+      onClose: (payload) => {},
+      size: 'medium',
+      context: {
+        description,
+        summary,
+      },
+    });
+    modal.open();
+  };
 
   return (
     <div>
