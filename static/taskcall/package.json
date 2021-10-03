@@ -14,7 +14,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "install-taskcall": "cd static/taskcall && npm install && npm run build",
+    "install-add-note-modal": "cd static/add-note-modal && npm install && npm run build",
+    "setup": "npm install && npm run install-taskcall && npm run install-add-note-modal"
   },
   "browserslist": {
     "production": [
