@@ -7,7 +7,11 @@
   "scripts": {
     "install-taskcall": "cd static/taskcall && npm install && npm run build",
     "install-add-note-modal": "cd static/add-note-modal && npm install && npm run build",
-    "setup": "npm install && npm run install-taskcall && npm run install-add-note-modal"
+    "install-add-responders-modal": "cd static/add-responders-modal && npm install && npm run build",
+    "install-reassign-modal": "cd static/reassign-modal && npm install && npm run build",
+    "install-run-response-set-modal": "cd static/run-response-set-modal && npm install && npm run build",
+    "install-status-update-modal": "cd static/status-update-modal && npm install && npm run build",
+    "setup": "npm install && npm run install-taskcall && npm run install-add-note-modal && npm run install-add-responders-modal && npm run install-reassign-modal && npm run install-run-response-set-modal && npm run install-status-update-modal"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
@@ -20,6 +24,6 @@
     "@atlaskit/textarea": "^4.2.2",
     "@forge/resolver": "^1.3.5",
     "@forge/ui": "^0.15.0",
-    "styled-components": "^5.3.1"
+    "axios": "^0.22.0"
   }
 }

@@ -1,15 +1,17 @@
 {
-  "name": "hello-world",
+  "name": "taskcall",
   "version": "0.1.0",
   "private": true,
   "homepage": ".",
   "dependencies": {
+    "@atlaskit/button": "^16.1.2",
     "@atlaskit/css-reset": "^6.0.1",
+    "@atlaskit/dropdown-menu": "^10.1.9",
+    "@atlaskit/textarea": "^4.2.2",
     "@forge/bridge": "^2.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "^4.0.3",
-    "styled-components": "^5.3.1"
+    "react-scripts": "^4.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,7 +1,7 @@
 modules:
   jira:issueGlance:
     - key: taskcall-jira-cloud
-      resource: main
+      resource: taskcall
       resolver:
         function: resolver
       viewportSize: medium
@@ -19,12 +19,12 @@ resources:
     path: static/add-note-modal/build
     tunnel:
       port: 3001
-  - key: reassign-modal
-    path: static/reassign-modal/build
-    tunnel:
-      port: 3002
   - key: add-responders-modal
     path: static/add-responders-modal/build
+    tunnel:
+      port: 3002
+  - key: reassign-modal
+    path: static/reassign-modal/build
     tunnel:
       port: 3003
   - key: run-response-set-modal
