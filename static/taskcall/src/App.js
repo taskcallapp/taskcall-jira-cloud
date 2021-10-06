@@ -170,20 +170,6 @@ function App() {
                 </div>
             </div>
           </div>
-
-          {isOpen && (
-              <ModalDialog header="QA Demo Validator" onClose={() => setOpen(false)}>
-                  <Form
-                      onSubmit={async (data) => {
-                          await setSubmitted(data);
-                          setOpen(false);
-                      }}
-                  >
-                      <CheckboxGroup label="Areas covered" name="parts">
-                      </CheckboxGroup>
-                  </Form>
-              </ModalDialog>
-          )}
         </div>
         :
         <div>
