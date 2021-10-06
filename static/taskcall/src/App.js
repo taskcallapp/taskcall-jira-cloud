@@ -41,7 +41,7 @@ function App() {
 
   const openAddNoteModal = () => {
     const modal = new Modal({
-      resource: 'add-note-modal',
+      resource: 'center-modal',
       onClose: (payload) => {},
       size: 'medium',
       context: {
@@ -54,7 +54,7 @@ function App() {
 
   const openReassignModal = () => {
     const modal = new Modal({
-      resource: 'reassign-modal',
+      resource: 'center-modal',
       onClose: (payload) => {},
       size: 'medium',
       context: {
@@ -67,7 +67,7 @@ function App() {
 
   const openAddRespondersModal = () => {
     const modal = new Modal({
-      resource: 'add-responders-modal',
+      resource: 'center-modal',
       onClose: (payload) => {},
       size: 'medium',
       context: {
@@ -80,7 +80,7 @@ function App() {
 
   const openRunResponseSetModal = () => {
     const modal = new Modal({
-      resource: 'run-response-set-modal',
+      resource: 'center-modal',
       onClose: (payload) => {},
       size: 'medium',
       context: {
@@ -93,7 +93,7 @@ function App() {
 
   const openStatusUpdateModal = () => {
     const modal = new Modal({
-      resource: 'status-update-modal',
+      resource: 'center-modal',
       onClose: (payload) => {},
       size: 'medium',
       context: {

@@ -59,81 +59,34 @@ function App() {
   // };
 
   return (
-    <div
-      style={{
-        padding: '2rem',
-        flex: 1,
-        position: 'relative',
-      }}
-    >
+    <div style={{ padding: '2rem', flex: 1, position: 'relative' }}>
       <span className="modal-header">{'Sample App'}</span>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '100%',
-        }}
-      >
-        {summary === null || description === null ? (
-          <Spinner size="large" />
-        ) : (
-          <div
-            style={{
-              width: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexDirection: 'column',
-            }}
-          >
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+        {
+          summary === null || description === null ?
+          (<Spinner size="large" />) :
+          (
+          <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
             <div style={{ marginTop: '2rem', width: '100%' }}>
               <Field label="Summary" name="summary">
                 {({ fieldProps }) => (
-                  <Textfield
-                    placeholder="Summary"
-                    name="summary"
-                    value={summary}
-                    onChange={(e) => {
-                      setSummary(e.target.value);
-                    }}
-                  />
+                  <Textfield placeholder="Summary" name="summary" value={summary} onChange={(e) => {setSummary(e.target.value);}} />
                 )}
               </Field>
             </div>
-            <div
-              style={{ marginTop: '1rem', width: '100%', marginBottom: '2rem' }}
-            >
+            <div style={{ marginTop: '1rem', width: '100%', marginBottom: '2rem' }}>
               <Field label="Description" name="description">
                 {({ fieldProps }) => (
-                  <TextArea
-                    placeholder="Description"
-                    name="description"
-                    value={description}
-                    onChange={(e) => {
-                      setDescription(e.target.value);
-                    }}
-                    minimumRows={10}
-                  />
+                  <TextArea placeholder="Description" name="description" value={description} onChange={(e) => {setDescription(e.target.value);}} minimumRows={10} />
                 )}
               </Field>
             </div>
           </div>
         )}
       </div>
-      <div
-        style={{
-          float: 'right',
-          position: 'absolute',
-          bottom: 0,
-          right: 0,
-          margin: '1rem 1rem',
-        }}
-      >
+      <div style={{ float: 'right', position: 'absolute', bottom: 0, right: 0, margin: '1rem 1rem' }}>
         <div>
-          <Button onClick={() => view.close()} appearance="subtle">
-            Cancel
-          </Button>
+          <Button onClick={() => view.close()} appearance="subtle"> { _lu.ins_cancel } </Button>
 
           <Button
             onClick={async () => {
