@@ -144,7 +144,7 @@ function App() {
             autoFocus
             // isDisabled={isAnnotating && isDisabled}
           >
-            { _lu.ttl_add_note }
+            { _lu.ttl_run_response_set }
           </Button>
         </div>
       </div>

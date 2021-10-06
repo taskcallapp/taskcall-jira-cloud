@@ -1,0 +1,21 @@
+{
+    "det_assigned_to": "Asignado a", "det_description": "Descripción", "det_next_alert_in": "Próxima alerta en",
+    "det_none": "Ninguno", "det_service": "Servicio", "det_title": "Título", "det_urgency": "Urgencia",
+    "err_pre_scheduled_alert_invalid_title": "Proporcione un título válido para la alerta por favor",
+    "err_select_at_least_one_assignee": "Seleccione al menos 1 cesionario por favor",
+    "err_select_at_least_one_response_set": "Seleccione al menos 1 conjunto de respuestas por favor",
+    "evn_acknowledge": "Reconocer", "evn_add_conference_bridge": "Agregar Puente de Conferencia",
+    "evn_add_impacted_business_service": "Agregar Impactada Servicio de Negocio",
+    "evn_add_responders": "Agregar Respondedores", "evn_add_subscribers": "Agregar Suscriptores", "evn_cancel": "Cancelar",
+    "evn_dispatch": "Envío", "evn_escalate": "Escalar", "evn_merge": "Fusionar", "evn_notate": "Anotar",
+    "evn_reassign": "Reasignar", "evn_resolve": "Resolver", "evn_run_response_set": "Ejecutar Conjunto de Respuesta",
+    "evn_snooze": "Posponer", "evn_status_update": "Actualización de Estado", "evn_trigger": "Desencadenar",
+    "evn_un_acknowledge": "Desreconocer", "evn_un_merge": "Desfusionar", "evn_urgency_amendment": "Modificación de Urgencia",
+    "ins_cancel": "Cancelar", "ins_create": "Crear", "ins_run": "Ejecutar", "ins_update": "Actualizar", "opt_critical": "Crítico",
+    "opt_high": "Alta", "opt_low": "Baja", "opt_medium": "Media", "opt_minor": "Menor", "sts_acknowledged": "Reconocida",
+    "sts_open": "Abierta", "sts_resolved": "Resuelta", "ttl_acknowledge": "Reconocer", "ttl_add_note": "Agregar Nota",
+    "ttl_add_responders": "Aggregar Respondedores", "ttl_create_incident": "Crear Incidencia", "ttl_details": "Detalles",
+    "ttl_new_update": "Nueva Actualización", "ttl_reassign": "Reasignar", "ttl_resolve": "Resolver",
+    "ttl_run_response_set": "Ejecutar Conjunto de Respuesta", "ttl_status_updates": "Actualizaciones de Estado",
+    "ttl_timeline": "Cronogramas"
+}

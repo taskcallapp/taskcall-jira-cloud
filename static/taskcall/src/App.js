@@ -39,9 +39,61 @@ function App() {
     return () => {};
   }, []);
 
-  const openModal = () => {
+  const openAddNoteModal = () => {
     const modal = new Modal({
       resource: 'add-note-modal',
+      onClose: (payload) => {},
+      size: 'medium',
+      context: {
+        description,
+        summary,
+      },
+    });
+    modal.open();
+  };
+
+  const openReassignModal = () => {
+    const modal = new Modal({
+      resource: 'reassign-modal',
+      onClose: (payload) => {},
+      size: 'medium',
+      context: {
+        description,
+        summary,
+      },
+    });
+    modal.open();
+  };
+
+  const openAddRespondersModal = () => {
+    const modal = new Modal({
+      resource: 'add-responders-modal',
+      onClose: (payload) => {},
+      size: 'medium',
+      context: {
+        description,
+        summary,
+      },
+    });
+    modal.open();
+  };
+
+  const openRunResponseSetModal = () => {
+    const modal = new Modal({
+      resource: 'run-response-set-modal',
+      onClose: (payload) => {},
+      size: 'medium',
+      context: {
+        description,
+        summary,
+      },
+    });
+    modal.open();
+  };
+
+  const openStatusUpdateModal = () => {
+    const modal = new Modal({
+      resource: 'status-update-modal',
       onClose: (payload) => {},
       size: 'medium',
       context: {
@@ -72,20 +124,14 @@ function App() {
                 <DropdownItemGroup>
                   <DropdownItem> { _lu.ttl_acknowledge } </DropdownItem>
                   <DropdownItem> { _lu.ttl_resolve } </DropdownItem>
-                  <DropdownItem onClick={openModal}> { _lu.ttl_add_note } </DropdownItem>
-                  <DropdownItem> { _lu.ttl_reassign } </DropdownItem>
-                  <DropdownItem> { _lu.ttl_add_responders } </DropdownItem>
-                  <DropdownItem> { _lu.ttl_run_response_set } </DropdownItem>
-                  <DropdownItem> { _lu.ttl_status_update } </DropdownItem>
+                  <DropdownItem onClick={openAddNoteModal}> { _lu.ttl_add_note } </DropdownItem>
+                  <DropdownItem onClick={openReassignModal}> { _lu.ttl_reassign } </DropdownItem>
+                  <DropdownItem onClick={openAddRespondersModal}> { _lu.ttl_add_responders } </DropdownItem>
+                  <DropdownItem onClick={openRunResponseSetModal}> { _lu.ttl_run_response_set } </DropdownItem>
+                  <DropdownItem onClick={openStatusUpdateModal}> { _lu.ttl_status_update } </DropdownItem>
                 </DropdownItemGroup>
               </DropdownMenu>
             </div>
-          </div>
-
-          <div style={{ clear: "both", height: "8px" }}>
-            <Button appearance="primary" onClick={openModal}>
-              Open modal
-            </Button>
           </div>
 
           <div style={{ clear: "both", marginBottom: "8px" }}>

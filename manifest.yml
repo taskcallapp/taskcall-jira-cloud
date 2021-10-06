@@ -19,6 +19,22 @@ resources:
     path: static/add-note-modal/build
     tunnel:
       port: 3001
+  - key: reassign-modal
+    path: static/reassign-modal/build
+    tunnel:
+      port: 3002
+  - key: add-responders-modal
+    path: static/add-responders-modal/build
+    tunnel:
+      port: 3003
+  - key: run-response-set-modal
+    path: static/run-response-set-modal/build
+    tunnel:
+      port: 3004
+  - key: update-status-modal
+    path: static/status-update-modal/build
+    tunnel:
+      port: 3005
 app:
   id: ari:cloud:ecosystem::app/270c9862-ee04-4a43-b28e-bb34a083c9b2
 permissions:
