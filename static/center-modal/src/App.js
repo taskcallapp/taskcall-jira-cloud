@@ -71,26 +71,70 @@ function App() {
       <div>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
           <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-            <p id="pErrorAddNoteModal" style="padding: 10px; color: red; font-size: 12px; text-align: center;" hidden></p>
-
             <div style={{ marginTop: '2rem', width: '100%' }}>
-              <Field label={ _lu.ttl_add_note }>
-                {({ fieldProps }) => ( <Textfield name="txtNote" value={ note } onChange={(e) => {setNote(e.target.value);}} /> )}
+              <Field label="Summary" name="summary">
+                {({ fieldProps }) => (
+                <Textfield placeholder="Summary" name="summary" value={summary} onChange={(e) => {setSummary(e.target.value);}} />
+                )}
+              </Field>
+            </div>
+            <div style={{ marginTop: '1rem', width: '100%', marginBottom: '2rem' }}>
+              <Field label="Description" name="description">
+                {({ fieldProps }) => (
+                  <TextArea placeholder="Description" name="description" value={description} onChange={(e) => {setDescription(e.target.value);}} minimumRows={10} />
+                )}
               </Field>
             </div>
           </div>
+
         </div>
+
         <div style={{ float: 'right', position: 'absolute', bottom: 0, right: 0, margin: '1rem 1rem' }}>
           <div>
             <Button onClick={() => view.close()} appearance="subtle"> { _lu.ins_cancel } </Button>
-
-            <Button appearance="primary" autoFocus>
+            <Button
+              onClick={async () => {
+                  await invoke('updateIssue', { description, summary });
+                  view.close();
+                }}
+              appearance="primary"
+              autoFocus
+              // isDisabled={isAnnotating && isDisabled}
+              >
               { _lu.ttl_add_note }
             </Button>
           </div>
         </div>
       </div>
     );
+
+
+
+
+    // return (
+    //   <div>
+    //     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+    //       <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+    //         <p id="pErrorAddNoteModal" style="padding: 10px; color: red; font-size: 12px; text-align: center;" hidden></p>
+    //
+    //         <div style={{ marginTop: '2rem', width: '100%' }}>
+    //           <Field label={ _lu.ttl_add_note }>
+    //             {({ fieldProps }) => ( <Textfield name="txtNote" value={ note } onChange={(e) => {setNote(e.target.value);}} /> )}
+    //           </Field>
+    //         </div>
+    //       </div>
+    //     </div>
+    //     <div style={{ float: 'right', position: 'absolute', bottom: 0, right: 0, margin: '1rem 1rem' }}>
+    //       <div>
+    //         <Button onClick={() => view.close()} appearance="subtle"> { _lu.ins_cancel } </Button>
+    //
+    //         <Button appearance="primary" autoFocus>
+    //           { _lu.ttl_add_note }
+    //         </Button>
+    //       </div>
+    //     </div>
+    //   </div>
+    // );
   }
 
   function showReassignModal() {
@@ -267,47 +311,8 @@ function App() {
       <span className="modal-header">{'Sample App'}</span>
       {
         modalType === null ?
-	      (<Spinner size="large" />) :
-        (
-          <div>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-              <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-                <div style={{ marginTop: '2rem', width: '100%' }}>
-                  <Field label="Summary" name="summary">
-                    {({ fieldProps }) => (
-                    <Textfield placeholder="Summary" name="summary" value={summary} onChange={(e) => {setSummary(e.target.value);}} />
-                    )}
-                  </Field>
-                </div>
-                <div style={{ marginTop: '1rem', width: '100%', marginBottom: '2rem' }}>
-                  <Field label="Description" name="description">
-                    {({ fieldProps }) => (
-                      <TextArea placeholder="Description" name="description" value={description} onChange={(e) => {setDescription(e.target.value);}} minimumRows={10} />
-                    )}
-                  </Field>
-                </div>
-              </div>
-
-            </div>
-
-            <div style={{ float: 'right', position: 'absolute', bottom: 0, right: 0, margin: '1rem 1rem' }}>
-              <div>
-                <Button onClick={() => view.close()} appearance="subtle"> { _lu.ins_cancel } </Button>
-                <Button
-                  onClick={async () => {
-                      await invoke('updateIssue', { description, summary });
-                      view.close();
-                    }}
-                  appearance="primary"
-                  autoFocus
-                  // isDisabled={isAnnotating && isDisabled}
-                  >
-                  { _lu.ttl_add_note }
-                </Button>
-              </div>
-            </div>
-          </div>
-        )
+	      ( <Spinner size="large" /> ) :
+        ( getModalDisplay() )
       }
     </div>
   );
