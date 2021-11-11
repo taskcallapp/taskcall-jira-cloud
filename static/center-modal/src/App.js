@@ -71,17 +71,10 @@ function App() {
       <div>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
           <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-            <div style={{ marginTop: '2rem', width: '100%' }}>
-              <Field label="Summary" name="summary">
-                {({ fieldProps }) => (
-                <Textfield placeholder="Summary" name="summary" value={summary} onChange={(e) => {setSummary(e.target.value);}} />
-                )}
-              </Field>
-            </div>
             <div style={{ marginTop: '1rem', width: '100%', marginBottom: '2rem' }}>
-              <Field label="Description" name="description">
+              <Field label={ _lu.ttl_add_note } name="note">
                 {({ fieldProps }) => (
-                  <TextArea placeholder="Description" name="description" value={description} onChange={(e) => {setDescription(e.target.value);}} minimumRows={10} />
+                  <TextArea name="note" value={ note } onChange={(e) => {setNote(e.target.value);}} minimumRows={10} />
                 )}
               </Field>
             </div>
@@ -99,7 +92,6 @@ function App() {
                 }}
               appearance="primary"
               autoFocus
-              // isDisabled={isAnnotating && isDisabled}
               >
               { _lu.ttl_add_note }
             </Button>
@@ -308,7 +300,7 @@ function App() {
 
   return (
     <div style={{ padding: '2rem', flex: 1, position: 'relative' }}>
-      <span className="modal-header">{'Sample App'}</span>
+      <span className="modal-header"> { 'TaskCall' } </span>
       {
         modalType === null ?
 	      ( <Spinner size="large" /> ) :
