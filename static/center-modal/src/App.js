@@ -72,6 +72,7 @@ function App() {
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
           <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
             <div style={{ marginTop: '1rem', width: '100%', marginBottom: '2rem' }}>
+              <p id="pErrorAddNoteModal" style={{ padding: "10px", color: "red", fontSize: "12px", textAlign: "center" }} hidden></p>
               <Field label={ _lu.ttl_add_note } name="note">
                 {({ fieldProps }) => (
                   <TextArea name="note" value={ note } onChange={(e) => {setNote(e.target.value);}} minimumRows={10} />
@@ -107,6 +108,7 @@ function App() {
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
           <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
             <div style={{ marginTop: '1rem', width: '100%', marginBottom: '2rem' }}>
+              <p id="pErrorReassignModal" style={{ padding: "10px", color: "red", fontSize: "12px", textAlign: "center" }} hidden></p>
               <Field label={ _lu.ttl_reassign } name="sltAssignees">
                 {({ fieldProps }) => (
                   <Select
@@ -157,35 +159,45 @@ function App() {
       <div>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
           <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-            <p id="pErrorAddRespondersModal" style="padding: 10px; color: red; font-size: 12px; text-align: center;" hidden></p>
-
-            <div style={{ marginTop: '2rem', width: '100%' }}>
-              <label htmlFor="sltResponders"> { _lu.ttl_add_responders } </label>
-              <Select
-                inputId="sltResponders"
-                className="multi-select"
-                classNamePrefix="react-select"
-                options={[
-                  { label: 'Adelaide', value: 'adelaide' },
-                  { label: 'Brisbane', value: 'brisbane' },
-                  { label: 'Canberra', value: 'canberra' },
-                  { label: 'Darwin', value: 'darwin' },
-                  { label: 'Hobart', value: 'hobart' },
-                  { label: 'Melbourne', value: 'melbourne' },
-                  { label: 'Perth', value: 'perth' },
-                  { label: 'Sydney', value: 'sydney' },
-                ]}
-                isMulti
-                isSearchable={ false }
-              />
+            <div style={{ marginTop: '1rem', width: '100%', marginBottom: '2rem' }}>
+              <p id="pErrorAddRespondersModal" style={{ padding: "10px", color: "red", fontSize: "12px", textAlign: "center" }} hidden></p>
+              <Field label={ _lu.ttl_add_responders } name="sltResponders">
+                {({ fieldProps }) => (
+                  <Select
+                    inputId="sltResponders"
+                    className="multi-select"
+                    classNamePrefix="react-select"
+                    options={[
+                      { label: 'Adelaide', value: 'adelaide' },
+                      { label: 'Brisbane', value: 'brisbane' },
+                      { label: 'Canberra', value: 'canberra' },
+                      { label: 'Darwin', value: 'darwin' },
+                      { label: 'Hobart', value: 'hobart' },
+                      { label: 'Melbourne', value: 'melbourne' },
+                      { label: 'Perth', value: 'perth' },
+                      { label: 'Sydney', value: 'sydney' },
+                    ]}
+                    isMulti
+                    isSearchable={ false }
+                  />
+                )}
+              </Field>
             </div>
           </div>
+
         </div>
+
         <div style={{ float: 'right', position: 'absolute', bottom: 0, right: 0, margin: '1rem 1rem' }}>
           <div>
             <Button onClick={() => view.close()} appearance="subtle"> { _lu.ins_cancel } </Button>
-
-            <Button appearance="primary" autoFocus>
+            <Button
+              onClick={async () => {
+                  await invoke('updateIssue', { description, summary });
+                  view.close();
+                }}
+              appearance="primary"
+              autoFocus
+              >
               { _lu.ttl_add_responders }
             </Button>
           </div>
@@ -199,35 +211,45 @@ function App() {
       <div>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
           <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-            <p id="pErrorRunResponseSetModal" style="padding: 10px; color: red; font-size: 12px; text-align: center;" hidden></p>
-
-            <div style={{ marginTop: '2rem', width: '100%' }}>
-              <label htmlFor="sltAssignees"> { _lu.ttl_run_response_set } </label>
-              <Select
-                inputId="sltResponseSets"
-                className="multi-select"
-                classNamePrefix="react-select"
-                options={[
-                  { label: 'Adelaide', value: 'adelaide' },
-                  { label: 'Brisbane', value: 'brisbane' },
-                  { label: 'Canberra', value: 'canberra' },
-                  { label: 'Darwin', value: 'darwin' },
-                  { label: 'Hobart', value: 'hobart' },
-                  { label: 'Melbourne', value: 'melbourne' },
-                  { label: 'Perth', value: 'perth' },
-                  { label: 'Sydney', value: 'sydney' },
-                ]}
-                isMulti
-                isSearchable={ false }
-              />
+            <div style={{ marginTop: '1rem', width: '100%', marginBottom: '2rem' }}>
+              <p id="pErrorRunResponseSetModal" style={{ padding: "10px", color: "red", fontSize: "12px", textAlign: "center" }} hidden></p>
+              <Field label={ _lu.ttl_run_response_set } name="sltResponseSets">
+                {({ fieldProps }) => (
+                  <Select
+                    inputId="sltResponseSets"
+                    className="multi-select"
+                    classNamePrefix="react-select"
+                    options={[
+                      { label: 'Adelaide', value: 'adelaide' },
+                      { label: 'Brisbane', value: 'brisbane' },
+                      { label: 'Canberra', value: 'canberra' },
+                      { label: 'Darwin', value: 'darwin' },
+                      { label: 'Hobart', value: 'hobart' },
+                      { label: 'Melbourne', value: 'melbourne' },
+                      { label: 'Perth', value: 'perth' },
+                      { label: 'Sydney', value: 'sydney' },
+                    ]}
+                    isMulti
+                    isSearchable={ false }
+                  />
+                )}
+              </Field>
             </div>
           </div>
+
         </div>
+
         <div style={{ float: 'right', position: 'absolute', bottom: 0, right: 0, margin: '1rem 1rem' }}>
           <div>
             <Button onClick={() => view.close()} appearance="subtle"> { _lu.ins_cancel } </Button>
-
-            <Button appearance="primary" autoFocus>
+            <Button
+              onClick={async () => {
+                  await invoke('updateIssue', { description, summary });
+                  view.close();
+                }}
+              appearance="primary"
+              autoFocus
+              >
               { _lu.ins_run }
             </Button>
           </div>
@@ -241,20 +263,29 @@ function App() {
       <div>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
           <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-            <p id="pErrorStatusUpdateModal" style="padding: 10px; color: red; font-size: 12px; text-align: center;" hidden></p>
-
-            <div style={{ marginTop: '2rem', width: '100%' }}>
-              <Field label={ _lu.ttl_new_update }>
-                {({ fieldProps }) => ( <Textfield name="txtNote" value={ statusUpdate } onChange={(e) => {setStatusUpdate(e.target.value);}} /> )}
+            <div style={{ marginTop: '1rem', width: '100%', marginBottom: '2rem' }}>
+              <p id="pErrorStatusUpdateModal" style={{ padding: "10px", color: "red", fontSize: "12px", textAlign: "center" }} hidden></p>
+              <Field label={  _lu.ttl_new_update } name="statusUpdate">
+                {({ fieldProps }) => (
+                  <TextArea name="statusUpdate" value={ statusUpdate } onChange={(e) => {setStatusUpdate(e.target.value);}} minimumRows={10} />
+                )}
               </Field>
             </div>
           </div>
+
         </div>
+
         <div style={{ float: 'right', position: 'absolute', bottom: 0, right: 0, margin: '1rem 1rem' }}>
           <div>
             <Button onClick={() => view.close()} appearance="subtle"> { _lu.ins_cancel } </Button>
-
-            <Button appearance="primary" autoFocus>
+            <Button
+              onClick={async () => {
+                  await invoke('updateIssue', { description, summary });
+                  view.close();
+                }}
+              appearance="primary"
+              autoFocus
+              >
               { _lu.ins_update }
             </Button>
           </div>
