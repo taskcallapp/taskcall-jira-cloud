@@ -266,47 +266,50 @@ function App() {
     <div style={{ padding: '2rem', flex: 1, position: 'relative' }}>
       <span className="modal-header">{'Sample App'}</span>
       {
-	  modalType === null ?
+        modalType === null ?
 	      (<Spinner size="large" />) :
-	  (<div>
-	       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-          
-          <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-            <div style={{ marginTop: '2rem', width: '100%' }}>
-              <Field label="Summary" name="summary">
-                {({ fieldProps }) => (
-                  <Textfield placeholder="Summary" name="summary" value={summary} onChange={(e) => {setSummary(e.target.value);}} />
-                )}
-              </Field>
+        (
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+              <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+                <div style={{ marginTop: '2rem', width: '100%' }}>
+                  <Field label="Summary" name="summary">
+                    {({ fieldProps }) => (
+                    <Textfield placeholder="Summary" name="summary" value={summary} onChange={(e) => {setSummary(e.target.value);}} />
+                    )}
+                  </Field>
+                </div>
+                <div style={{ marginTop: '1rem', width: '100%', marginBottom: '2rem' }}>
+                  <Field label="Description" name="description">
+                    {({ fieldProps }) => (
+                      <TextArea placeholder="Description" name="description" value={description} onChange={(e) => {setDescription(e.target.value);}} minimumRows={10} />
+                    )}
+                  </Field>
+                </div>
+              </div>
+
             </div>
-            <div style={{ marginTop: '1rem', width: '100%', marginBottom: '2rem' }}>
-              <Field label="Description" name="description">
-                {({ fieldProps }) => (
-                  <TextArea placeholder="Description" name="description" value={description} onChange={(e) => {setDescription(e.target.value);}} minimumRows={10} />
-                )}
-              </Field>
+
+            <div style={{ float: 'right', position: 'absolute', bottom: 0, right: 0, margin: '1rem 1rem' }}>
+              <div>
+                <Button onClick={() => view.close()} appearance="subtle"> { _lu.ins_cancel } </Button>
+                <Button
+                  onClick={async () => {
+                      await invoke('updateIssue', { description, summary });
+                      view.close();
+                    }}
+                  appearance="primary"
+                  autoFocus
+                  // isDisabled={isAnnotating && isDisabled}
+                  >
+                  { _lu.ttl_add_note }
+                </Button>
+              </div>
             </div>
           </div>
-
-      </div>
-      <div style={{ float: 'right', position: 'absolute', bottom: 0, right: 0, margin: '1rem 1rem' }}>
-        <div>
-          <Button onClick={() => view.close()} appearance="subtle"> { _lu.ins_cancel } </Button>
-
-          <Button
-            onClick={async () => {
-              await invoke('updateIssue', { description, summary });
-              view.close();
-            }}
-            appearance="primary"
-            autoFocus
-            // isDisabled={isAnnotating && isDisabled}
-          >
-            { _lu.ttl_add_note }
-          </Button>
-        </div>
-      </div>
-</div>)}
+        )
+      }
+    </div>
   );
 }
 
