@@ -45,9 +45,9 @@ function App() {
       onClose: (payload) => {},
       size: 'medium',
       context: {
-        1,
-        description,
-        summary,
+          modalType: 1,
+          description: description,
+          summary: summary
       },
     });
     modal.open();
@@ -59,9 +59,9 @@ function App() {
       onClose: (payload) => {},
       size: 'medium',
       context: {
-        2,
-        description,
-        summary,
+          modalType: 2,
+	  description: description,
+	  summary: summary
       },
     });
     modal.open();
@@ -73,9 +73,9 @@ function App() {
       onClose: (payload) => {},
       size: 'medium',
       context: {
-        3,
-        description,
-        summary,
+          modalType: 3,
+          description: description,
+          summary: summary
       },
     });
     modal.open();
@@ -87,9 +87,9 @@ function App() {
       onClose: (payload) => {},
       size: 'medium',
       context: {
-        4,
-        description,
-        summary,
+          modalType: 4,
+          description: description,
+          summary: summary
       },
     });
     modal.open();
@@ -101,9 +101,9 @@ function App() {
       onClose: (payload) => {},
       size: 'medium',
       context: {
-        5,
-        description,
-        summary,
+          modalType: 5,
+          description: description,
+          summary: summary
       },
     });
     modal.open();
