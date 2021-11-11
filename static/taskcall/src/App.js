@@ -45,6 +45,7 @@ function App() {
       onClose: (payload) => {},
       size: 'medium',
       context: {
+        1,
         description,
         summary,
       },
@@ -58,6 +59,7 @@ function App() {
       onClose: (payload) => {},
       size: 'medium',
       context: {
+        2,
         description,
         summary,
       },
@@ -71,6 +73,7 @@ function App() {
       onClose: (payload) => {},
       size: 'medium',
       context: {
+        3,
         description,
         summary,
       },
@@ -84,6 +87,7 @@ function App() {
       onClose: (payload) => {},
       size: 'medium',
       context: {
+        4,
         description,
         summary,
       },
@@ -97,6 +101,7 @@ function App() {
       onClose: (payload) => {},
       size: 'medium',
       context: {
+        5,
         description,
         summary,
       },
