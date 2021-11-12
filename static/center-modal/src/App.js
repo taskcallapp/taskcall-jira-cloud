@@ -18,6 +18,8 @@ function App() {
   const [note, setNote] = useState(null);
   const [statusUpdate, setStatusUpdate] = useState(null);
 
+  const [title, setTitle] = useState(null);
+
   useEffect(() => {
     (async () => {
       const context = await view.getContext();
@@ -65,6 +67,89 @@ function App() {
   //       : null
   //   );
   // };
+
+  function showCreateIncidentModal() {
+    return (
+      <div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+          <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+            <div style={{ marginTop: '1rem', width: '100%', marginBottom: '2rem' }}>
+              <p id="pErrorCreateIncidentModal" style={{ padding: "10px", color: "red", fontSize: "12px", textAlign: "center" }} hidden></p>
+              <Field label={ _lu.det_title } name="lblTitle">
+                {({ fieldProps }) => (
+                  <Textfield name="txtTitle" value={ title } onChange={(e) => { setTitle(e.target.value); }}/>
+                )}
+              </Field>
+
+              <Field label={ _lu.det_service } name="lblServices">
+                {({ fieldProps }) => (
+                  <Select
+                    inputId="sltServices"
+                    className="single-select"
+                    classNamePrefix="react-select"
+                    options={[
+                      { label: 'Adelaide', value: 'adelaide' },
+                      { label: 'Brisbane', value: 'brisbane' },
+                      { label: 'Canberra', value: 'canberra' },
+                      { label: 'Darwin', value: 'darwin' },
+                      { label: 'Hobart', value: 'hobart' },
+                      { label: 'Melbourne', value: 'melbourne' },
+                      { label: 'Perth', value: 'perth' },
+                      { label: 'Sydney', value: 'sydney' },
+                    ]}
+                    isMulti
+                    isSearchable={ false }
+                  />
+                )}
+              </Field>
+
+              <Field label={ _lu.det_service } name="lblUrgency">
+                {({ fieldProps }) => (
+                  <Select
+                    inputId="sltUrgency"
+                    className="single-select"
+                    classNamePrefix="react-select"
+                    options={[
+                      { label: { _lu.opt_minor }, value: 1 },
+                      { label: { _lu.opt_low }, value: 2 },
+                      { label: { _lu.opt_medium }, value: 3 },
+                      { label: { _lu.opt_high }, value: 4 },
+                      { label: { _lu.opt_critical }, value: 5 },
+                    ]}
+                    isMulti
+                    isSearchable={ false }
+                  />
+                )}
+              </Field>
+
+              <Field label={  _lu.det_description } name="lblDescription">
+                {({ fieldProps }) => (
+                  <TextArea name="txtDescription" value={ description } onChange={(e) => {setDescription(e.target.value);}} minimumRows={5} />
+                )}
+              </Field>
+            </div>
+          </div>
+
+        </div>
+
+        <div style={{ float: 'right', position: 'absolute', bottom: 0, right: 0, margin: '1rem 1rem' }}>
+          <div>
+            <Button onClick={() => view.close()} appearance="subtle"> { _lu.ins_cancel } </Button>
+            <Button
+              onClick={async () => {
+                  await invoke('updateIssue', { description, summary });
+                  view.close();
+                }}
+              appearance="primary"
+              autoFocus
+              >
+              { _lu.ins_create }
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   function showAddNoteModal() {
     return (
@@ -295,17 +380,17 @@ function App() {
   }
 
   function getModalDisplay(){
-    console.log('got here');
-    console.log(modalType);
     if (modalType == 1){
+      return showCreateIncidentModal();
+    } else if (modalType == 2){
       return showAddNoteModal();
-    } else if (modalType == 2) {
-      return showReassignModal();
     } else if (modalType == 3) {
-      return showAddRespondersModal();
+      return showReassignModal();
     } else if (modalType == 4) {
+      return showAddRespondersModal();
+    } else if (modalType == 5) {
       return showRunResponseSetModal();
-    } else if (modalType == 5){
+    } else if (modalType == 6){
       return showStatusUpdateModal();
     }
   }

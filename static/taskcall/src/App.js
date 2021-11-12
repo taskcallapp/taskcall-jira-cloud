@@ -39,7 +39,8 @@ function App() {
     return () => {};
   }, []);
 
-  const openAddNoteModal = () => {
+  const openCreateIncidentModal = () => {
+    console.log(data);
     const modal = new Modal({
       resource: 'center-modal',
       onClose: (payload) => {},
@@ -53,13 +54,27 @@ function App() {
     modal.open();
   };
 
+  const openAddNoteModal = () => {
+    const modal = new Modal({
+      resource: 'center-modal',
+      onClose: (payload) => {},
+      size: 'small',
+      context: {
+          modalType: 2,
+          description: description,
+          summary: summary
+      },
+    });
+    modal.open();
+  };
+
   const openReassignModal = () => {
     const modal = new Modal({
       resource: 'center-modal',
       onClose: (payload) => {},
-      size: 'medium',
+      size: 'small',
       context: {
-          modalType: 2,
+          modalType: 3,
 	  description: description,
 	  summary: summary
       },
@@ -71,9 +86,9 @@ function App() {
     const modal = new Modal({
       resource: 'center-modal',
       onClose: (payload) => {},
-      size: 'medium',
+      size: 'small',
       context: {
-          modalType: 3,
+          modalType: 4,
           description: description,
           summary: summary
       },
@@ -85,9 +100,9 @@ function App() {
     const modal = new Modal({
       resource: 'center-modal',
       onClose: (payload) => {},
-      size: 'medium',
+      size: 'small',
       context: {
-          modalType: 4,
+          modalType: 5,
           description: description,
           summary: summary
       },
@@ -99,9 +114,9 @@ function App() {
     const modal = new Modal({
       resource: 'center-modal',
       onClose: (payload) => {},
-      size: 'medium',
+      size: 'small',
       context: {
-          modalType: 5,
+          modalType: 6,
           description: description,
           summary: summary
       },
@@ -112,7 +127,7 @@ function App() {
   return (
     <div>
       {
-        data ?
+        data === null ?
         <div>
           <label id="lblTcInc" hidden></label>
           <p id="pError" style={{ padding: "10px", color: "red", fontSize: "12px", textAlign: "center" }} hidden></p>
@@ -178,7 +193,7 @@ function App() {
         </div>
         :
         <div>
-          <Button appearance="primary"> { _lu.ttl_create_incident } </Button>
+          <Button appearance="primary" onClick={openCreateIncidentModal}> { _lu.ttl_create_incident } </Button>
         </div>
       }
     </div>

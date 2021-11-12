@@ -9,12 +9,12 @@ const API = axios.create({ baseURL: BASE_URL });
 const resolver = new Resolver();
 
 resolver.define('getText', (req) => {
-  console.log(req);
-
+  const issueId = req.context.extension.issue.key;
   var data = {
     "incident_title": "Test incident 5",
     "status": "Open",
-    "toShowActionOptions": true
+    "toShowActionOptions": true,
+    "issueId": issueId
   }
   return data;
 });
