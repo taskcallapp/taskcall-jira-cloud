@@ -40,7 +40,6 @@ function App() {
   }, []);
 
   const openCreateIncidentModal = () => {
-    console.log(data);
     const modal = new Modal({
       resource: 'center-modal',
       onClose: (payload) => {},

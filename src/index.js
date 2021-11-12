@@ -80,4 +80,12 @@ resolver.define('getPostData', async (req) => {
   }
 });
 
+resolver.define('createIncident', async (req) => {
+  try {
+    console.log('going to create incident');
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 export const handler = resolver.getDefinitions();

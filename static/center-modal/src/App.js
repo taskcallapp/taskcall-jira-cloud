@@ -103,7 +103,7 @@ function App() {
                 )}
               </Field>
 
-              <Field label={ _lu.det_service } name="lblUrgency">
+              <Field label={ _lu.det_urgency } name="lblUrgency">
                 {({ fieldProps }) => (
                   <Select
                     inputId="sltUrgency"
@@ -137,7 +137,7 @@ function App() {
             <Button onClick={() => view.close()} appearance="subtle"> { _lu.ins_cancel } </Button>
             <Button
               onClick={async () => {
-                  await invoke('updateIssue', { description, summary });
+                  await invoke('createIncident', { example: 'my-invoke-variable' });
                   view.close();
                 }}
               appearance="primary"
