@@ -110,11 +110,11 @@ function App() {
                     className="single-select"
                     classNamePrefix="react-select"
                     options={[
-                      { label: { _lu.opt_minor }, value: 1 },
-                      { label: { _lu.opt_low }, value: 2 },
-                      { label: { _lu.opt_medium }, value: 3 },
-                      { label: { _lu.opt_high }, value: 4 },
-                      { label: { _lu.opt_critical }, value: 5 },
+                      { label: _lu.opt_minor, value: 1 },
+                      { label: _lu.opt_low, value: 2 },
+                      { label: _lu.opt_medium, value: 3 },
+                      { label: _lu.opt_high, value: 4 },
+                      { label: _lu.opt_critical, value: 5 },
                     ]}
                     isMulti
                     isSearchable={ false }
