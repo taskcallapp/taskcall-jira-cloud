@@ -135,7 +135,8 @@ function App() {
             <Button onClick={() => view.close()} appearance="subtle"> { _lu.ins_cancel } </Button>
             <Button
               onClick={async () => {
-                  await invoke('createIncident', { example: 'my-invoke-variable' });
+                  const createInc = await invoke('createIncident', { example: 'my-invoke-variable' });
+                  console.log(createInc);
                   view.close();
                 }}
               appearance="primary"
