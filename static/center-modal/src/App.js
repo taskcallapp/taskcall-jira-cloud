@@ -133,15 +133,7 @@ function App() {
         <div style={{ float: 'right', position: 'absolute', bottom: 0, right: 0, margin: '1rem 1rem' }}>
           <div>
             <Button onClick={() => view.close()} appearance="subtle"> { _lu.ins_cancel } </Button>
-            <Button
-              onClick={async () => {
-                  const createInc = await invoke('createIncident', { example: 'my-invoke-variable' });
-                  console.log(createInc);
-                  view.close();
-                }}
-              appearance="primary"
-              autoFocus
-              >
+            <Button onClick={() => view.close({'title': summary, 'text_msg': description }) } appearance="primary" autoFocus>
               { _lu.ins_create }
             </Button>
           </div>

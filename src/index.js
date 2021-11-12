@@ -82,7 +82,7 @@ resolver.define('getPostData', async (req) => {
 
 resolver.define('createIncident', async (req) => {
   try {
-    return 'going to create incident';
+    console.log('going to create incident');
   } catch (err) {
     console.log(err);
   }

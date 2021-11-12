@@ -39,10 +39,17 @@ function App() {
     return () => {};
   }, []);
 
+  async function createIncident(payload) {
+    if (payload !== null) {
+      console.log('got called to cre inc');
+      await invoke('createIncident', {});
+    }
+  }
+
   const openCreateIncidentModal = () => {
     const modal = new Modal({
       resource: 'center-modal',
-      onClose: (payload) => {},
+      onClose: (payload) => createIncident(payload),
       size: 'medium',
       context: {
           modalType: 1,
