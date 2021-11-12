@@ -18,8 +18,6 @@ function App() {
   const [note, setNote] = useState(null);
   const [statusUpdate, setStatusUpdate] = useState(null);
 
-  const [title, setTitle] = useState(null);
-
   useEffect(() => {
     (async () => {
       const context = await view.getContext();
@@ -77,7 +75,7 @@ function App() {
               <p id="pErrorCreateIncidentModal" style={{ padding: "10px", color: "red", fontSize: "12px", textAlign: "center" }} hidden></p>
               <Field label={ _lu.det_title } name="lblTitle">
                 {({ fieldProps }) => (
-                  <Textfield name="txtTitle" value={ title } onChange={(e) => { setTitle(e.target.value); }}/>
+                  <Textfield name="txtTitle" value={ summary } onChange={(e) => { setSummary(e.target.value); }}/>
                 )}
               </Field>
 
