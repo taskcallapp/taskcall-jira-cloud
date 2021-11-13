@@ -261,7 +261,7 @@ function App() {
       var dateHour = dateObj.getHours();
       var dateMinutes = dateObj.getMinutes();
       var dateSeconds = dateObj.getSeconds();
-      var dateObj = new Date(Date.UTC(dateYear, dateMonth, day=dateDay, dateHour, dateMinutes, dateSeconds));
+      var dateObj = new Date(Date.UTC(dateYear, dateMonth, dateDay, dateHour, dateMinutes, dateSeconds));
 
       var localYear = dateObj.getFullYear();
       var localMonth = dateObj.getMonth();
