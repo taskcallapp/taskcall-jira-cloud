@@ -261,7 +261,7 @@ function App() {
       var dateHour = dateObj.getHours();
       var dateMinutes = dateObj.getMinutes();
       var dateSeconds = dateObj.getSeconds();
-      var dateObj = new Date(Date.UTC(year=dateYear, monthIndex=dateMonth, day=dateDay, hours=dateHour, minutes=dateMinutes, seconds=dateSeconds));
+      var dateObj = new Date(Date.UTC(dateYear, dateMonth, day=dateDay, dateHour, dateMinutes, dateSeconds));
 
       var localYear = dateObj.getFullYear();
       var localMonth = dateObj.getMonth();
@@ -270,7 +270,7 @@ function App() {
       var localMinute = dateObj.getMinutes();
       var localSeconds = dateObj.getSeconds();
 
-      var newDateObj = new Date(year=localYear, monthIndex=localMonth, day=localDay, hours=localHour, minutes=localMinute, seconds=localSeconds);
+      var newDateObj = new Date(localYear, localMonth, localDay, localHour, localMinute, localSeconds);
       return newDateObj;
   }
 
