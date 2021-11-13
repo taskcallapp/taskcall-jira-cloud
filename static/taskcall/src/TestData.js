@@ -1,7 +1,4 @@
-import * as VarNames from '../src/VarNames';
-
-
-const incidentData = {
+export const testIncidentData = {
   "instance_id": 31,
   "organization_instance_id": 11,
   "instance_timestamp": "2020-11-11 18:01:18.660758",
@@ -29,9 +26,4 @@ const incidentData = {
   "subscribers": null,
   "status_update": [],
   "conference_bridges": ['315-262-5399,,,,12456#', 'https"://zoom.us']
-}
-
-
-export default {
-  incidentData
 }

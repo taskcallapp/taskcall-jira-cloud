@@ -5,9 +5,9 @@ import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdow
 import { invoke, Modal } from '@forge/bridge';
 import * as _lu from '../src/assets/files/label_universe.json';
 import MenuIcon from '@atlaskit/icon/glyph/menu';
-import * as TestData from 'TestData';
+import { testIncidentData } from '../src/TestData';
 import TextArea from '@atlaskit/textarea';
-import * as VarNames from 'VarNames';
+import { VarNames } from '../src/VarNames';
 
 
 function App() {
@@ -87,7 +87,7 @@ function App() {
     console.log(payload);
     if (payload !== null) {
       await invoke('createIncident', {});
-      setData(TestData.incidentData);
+      setData(testIncidentData);
     }
   }
 
