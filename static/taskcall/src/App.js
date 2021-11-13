@@ -44,9 +44,9 @@ function App() {
   const const_acknowledged = 'ACKNOWLEDGED'
   const const_resolved = 'RESOLVED'
 
-  useEffect(() => {
-    invoke('getText', { example: 'my-invoke-variable' }).then(setData);
-  }, []);
+  // useEffect(() => {
+  //   invoke('getText', { example: 'my-invoke-variable' }).then(setData);
+  // }, []);
 
   useEffect(() => {
     (async () => {
