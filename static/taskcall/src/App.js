@@ -333,7 +333,7 @@ function App() {
             </p>
             <div id="timelineBody" className="app-text">
               { data[VarNames.str_events].map((item, index) =>
-                <div style={{ borderLeft: "5px solid #909090", paddingLeft: "10px", marginBottom: "5px", paddingRight: "3px", fontSize: "12px", color: "#606060" }}>
+                <div style={{ borderLeft: "5px solid #909090", paddingLeft: "10px", marginBottom: "5px", paddingRight: "3px", fontSize: "12px", color: "#404040" }}>
                   <label style={{ paddingRight: "10px" }}> { timestampToString(utcToLocalTimestamp(item[VarNames.str_eventTimestamp])) } </label>
                   <label> { eventTypeMap[item[VarNames.str_eventType]] } </label>
                   <br/>

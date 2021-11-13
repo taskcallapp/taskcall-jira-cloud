@@ -15,6 +15,8 @@ function App() {
   const [modalType, setModalType] = useState(null);
   const [summary, setSummary] = useState(null);
   const [description, setDescription] = useState(null);
+  const [service, setService] = useState(null);
+  const [urgency, setUrgency] = useState(4);
   const [note, setNote] = useState(null);
   const [statusUpdate, setStatusUpdate] = useState(null);
 
@@ -26,27 +28,12 @@ function App() {
       const modalType = context.extension.modal.modalType;
       const description = context.extension.modal.description;
       const summary = context.extension.modal.summary;
-//      const { modalType, description, summary } = context.extension.modal;
+
       setModalType(modalType);
       setDescription(description);
       setSummary(summary);
-
-      setTimeout(() => {
-        getRandomData();
-      }, 3000);
     })();
   }, []);
-
-  // getRandomData from api
-  const getRandomData = async () => {
-    const { title, body } = await invoke('getPostData', {
-      postId: Math.floor(Math.random() * 4 + 1),
-    });
-    // replace the title
-    setSummary(title);
-    // replace the description
-    setDescription(body.replace(/(\r\n|\n|\r)/gm, '. '));
-  };
 
   // const getIssueDetails = async (currentIssueKey) => {
   //   const issueResponse = await requestJira(
@@ -98,6 +85,7 @@ function App() {
                     ]}
                     isMulti
                     isSearchable={ false }
+                    onChange={ value => setService({ value }) }
                   />
                 )}
               </Field>
@@ -117,6 +105,7 @@ function App() {
                     ]}
                     isMulti
                     isSearchable={ false }
+                    onChange={ value => setUrgency({ value }) }
                   />
                 )}
               </Field>
@@ -134,7 +123,7 @@ function App() {
         <div style={{ float: 'right', position: 'absolute', bottom: 0, right: 0, margin: '1rem 1rem' }}>
           <div>
             <Button onClick={() => view.close()} appearance="subtle"> { _lu.ins_cancel } </Button>
-            <Button onClick={() => view.close({'title': summary, 'text_msg': description }) } appearance="primary" autoFocus>
+            <Button onClick={() => view.close({'title': summary, 'text_msg': description, 'urgency_level': urgency,  'service': service }) } appearance="primary" autoFocus>
               { _lu.ins_create }
             </Button>
           </div>
