@@ -12,7 +12,7 @@ export const testIncidentData = {
     "created_by": null,
     "urgency_level": 4,
     "services": ['Product Database', 'asjdoajfpajsfjisjdfwwf'],
-    "text_msg": "Position monitor has failed... Traceback (most recent call last)":",
+    "text_msg": "Position monitor has failed... Traceback (most recent call last)",
   },
   "events": [
       {
