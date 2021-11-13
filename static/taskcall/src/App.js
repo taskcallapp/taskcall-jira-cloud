@@ -5,9 +5,9 @@ import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdow
 import { invoke, Modal } from '@forge/bridge';
 import * as _lu from '../src/assets/files/label_universe.json';
 import MenuIcon from '@atlaskit/icon/glyph/menu';
-import * as TestData from '../src/TestData';
+import * as TestData from 'TestData';
 import TextArea from '@atlaskit/textarea';
-import * as VarNames from '../src/VarNames';
+import * as VarNames from 'VarNames';
 
 
 function App() {
