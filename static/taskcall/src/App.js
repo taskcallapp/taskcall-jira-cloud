@@ -335,17 +335,17 @@ function App() {
               { data[VarNames.str_events].map((item, index) =>
                 <div style={{ borderLeft: "5px", borderColor: "#909090", paddingLeft: "10px", marginBottom: "5px", paddingRight: "3px", fontSize: "10px", color: "#606060" }}>
                   <label style={{ paddingRight: "10px" }}> { timestampToString(convertUtcTimestamp(item[VarNames.str_eventTimestamp])) } </label>
-                  <label> { eventTypeMap[item[VarNames.str_eventType] } </label>
+                  <label> { eventTypeMap[item[VarNames.str_eventType]] } </label>
                   <br/>
                   <label> { item[VarNames.str_eventBy] } </label>
                   {
                     item[VarNames.str_eventType] == 'NOTATE' ?
-                    <label> { JSON.parse(item[VarNames.str_eventLog][VarNames.str_notes]) } </label>
+                    <label> { JSON.parse(item[VarNames.str_eventLog])[VarNames.str_notes] } </label>
                     : null
                   }
                   {
                     item[VarNames.str_eventType] == 'STATUS_UPDATE' ?
-                    <label> { JSON.parse(item[VarNames.str_eventLog][VarNames.str_statusUpdate]) } </label>
+                    <label> { JSON.parse(item[VarNames.str_eventLog])[VarNames.str_statusUpdate] } </label>
                     : null
                   }
                 </div>
