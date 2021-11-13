@@ -17,7 +17,7 @@ function App() {
 
   // Internal constants
   const urgencyMap = {
-      1: _lu.opt_minor, 2: _lu.opt_lo, 3: _lu.opt_medium,
+      1: _lu.opt_minor, 2: _lu.opt_low, 3: _lu.opt_medium,
       4: _lu.opt_high, 5: _lu.opt_critical
   };
   const eventTypeMap = {
