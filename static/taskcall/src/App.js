@@ -286,7 +286,7 @@ function App() {
             <div className="header-text" style={{ width: "75%", float: "left" }}>
               { decorateIncidentStatus(data[VarNames.str_status]) }
 
-              <div style={{ marginTop: "5px", marginBottom: "5px" }}>
+              <div style={{ paddingTop: "5px", paddingBottom: "5px" }}>
                   <a href="https://app.taskcallapp.com/incidents/{{ incident_id }}" target="_blank"> { data[VarNames.str_task][VarNames.str_taskTitle] } </a>
               </div>
             </div>
@@ -305,7 +305,7 @@ function App() {
             </div>
           </div>
 
-          <div style={{ clear: "both", marginTop: "10px", marginBottom: "10px" }}>
+          <div style={{ clear: "both", paddingTop: "10px", paddingBottom: "10px" }}>
               <div className="app-text">
                   <table>
                       <tr className="table-row">
@@ -327,13 +327,13 @@ function App() {
                   </table>
               </div>
           </div>
-          <div style={{ clear: "both", marginTop: "10px", marginBottom: "10px", paddingBottom: "20px" }}>
+          <div style={{ clear: "both", paddingTop: "20px", paddingBottom: "20px" }}>
             <p className="header-text" style={{ paddingBottom: "10px" }}>
                 { _lu.ttl_timeline }
             </p>
             <div id="timelineBody" className="app-text">
               { data[VarNames.str_events].map((item, index) =>
-                <div style={{ borderLeftWidth: "5px", borderColor: "#909090", paddingLeft: "10px", marginBottom: "5px", paddingRight: "3px", fontSize: "12px", color: "#606060" }}>
+                <div style={{ borderLeft: "5px solid #909090", paddingLeft: "10px", marginBottom: "5px", paddingRight: "3px", fontSize: "12px", color: "#606060" }}>
                   <label style={{ paddingRight: "10px" }}> { timestampToString(utcToLocalTimestamp(item[VarNames.str_eventTimestamp])) } </label>
                   <label> { eventTypeMap[item[VarNames.str_eventType]] } </label>
                   <br/>
