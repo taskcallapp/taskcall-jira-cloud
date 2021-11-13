@@ -22,6 +22,7 @@ function App() {
     (async () => {
       const context = await view.getContext();
       setContext(context);
+
       const modalType = context.extension.modal.modalType;
       const description = context.extension.modal.description;
       const summary = context.extension.modal.summary;
